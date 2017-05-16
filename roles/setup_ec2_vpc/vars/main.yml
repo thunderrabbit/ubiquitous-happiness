@@ -1,3 +1,6 @@
 ---
 # vars file for setup_ec2_vpc
 vpc_cidr_block: 10.0.0.0/16
+# {{ server_name }} is defined in ~/(repo)/vars/0000_vars.yml
+vpc_name_tag: "VPC for {{ server_name }} server"
+security_group: "{{ server_name }}ServerSG" # must be in VPC that we will use
