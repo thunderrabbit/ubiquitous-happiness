@@ -31,5 +31,13 @@ then
 
     git add ec2.ini
     git commit -m "Speed up requests by targeting just one region."
+
+
+    # http://alexconst.net/2016/02/08/ansible/
+    sed -i "s/#rds = False/rds = False/" ec2.ini
+    sed -i "s/#elasticache = False/elasticache = False/" ec2.ini
+
+    git add ec2.ini
+    git commit -m "Only look for EC2 instances, not RDS nor elasticache"
 fi
 
