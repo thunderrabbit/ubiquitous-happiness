@@ -12,6 +12,14 @@ Set up Ansible playbooks to run https://github.com/zcash/zcash-gitian on AWS
 
 ## Setup
 
+### setup AWS user
+
+Visit https://console.aws.amazon.com/iam/home?region=us-west-1#/users
+
+Create a new user with Policy `AmazonEC2FullAccess`
+
+Make note of the Security credentials for this user.  They will be needed when you run `./setup.sh`.
+
 ### setup 'Manager' box with Ansible
 
 3. (optional) Install vagrant on your local box
