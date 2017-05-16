@@ -1,0 +1,5 @@
+# server_name is used to create VPC, security group, and to tag the instance
+server_name: "Zcash"
+
+## TODO: make region be specified by user when setup.sh is run
+region: ap-northeast-1
