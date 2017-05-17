@@ -3,3 +3,9 @@ server_name: "Zcash"
 
 ## TODO: make region be specified by user when setup.sh is run
 region: ap-northeast-1
+
+# The image depends on the region
+image: ami-afb09dc8
+
+# Server will be Ubuntu 14, determined by ami above
+tag_os: "Ubuntu16"
