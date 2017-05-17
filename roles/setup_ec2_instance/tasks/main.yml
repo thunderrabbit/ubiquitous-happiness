@@ -1,2 +1,42 @@
 ---
 # tasks file for setup_ec2_instance
+
+- name: Create name for local ssh key
+  set_fact:
+    local_ssh_key_name: "{{ server_name | regex_replace(' ','_') }}_id_rsa"
+
+- name: Generate SSH key for this project
+  command: ssh-keygen -b 2048 -t rsa -f "~/.ssh/{{ local_ssh_key_name }}" -N ''
+  args:
+    creates: ~/.ssh/{{ local_ssh_key_name }}
+
+- name: Create ec2 key
+  ec2_key:
+    name: "{{ keypair }}"
+    region: "{{ region }}"
+    key_material: "{{ item }}"
+  with_file: ~/.ssh/{{ local_ssh_key_name }}.pub
+
+- name: Launch the new EC2 Instance
+  local_action:
+     module: ec2
+     region: "{{ region }}"
+     group: "{{ security_group }}"
+     instance_type: "{{ instance_type}}"
+     image: "{{ image }}"
+     assign_public_ip: yes
+     wait: true
+     volumes:
+     - device_name: /dev/sda1
+       volume_size: 32
+     keypair: "{{ keypair }}"
+     exact_count: "{{ count }}"
+     count_tag:
+        Name: "{{ tag_name }}"
+     instance_tags:
+        Name:     "{{ tag_name }}"
+        Type:     "{{ tag_type }}"
+        OS:       "{{ tag_os }}"
+        Details:  "{{ tag_deets }}"
+     vpc_subnet_id: "{{ webserver_subnet_id_1 }}"
+  register: ec2
