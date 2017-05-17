@@ -1,0 +1,19 @@
+keypair: "{{ server_name }}KeyPair"
+
+# server name is defined in 0000_vars.yml
+tag_name: "{{ server_name }} via Ansible"
+
+# How many of these servers should we spin up?
+## NOTE: According to role/setup_ec2_instance,
+##       the {{ tag_name }} is what will be
+##       matched to count servers
+count: 1
+
+# https://github.com/zcash/zcash-gitian says we need 4GB RAM and 2 cores
+instance_type: t2.medium
+
+# deets about server
+tag_deets: "Zcash server via Ansible"
+
+# The Type will be the server's function
+tag_type: "Zcash miner"
