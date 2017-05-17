@@ -1,2 +1,12 @@
 ---
 # tasks file for install_zcash_requirements
+# https://github.com/zcash/zcash-gitian
+
+- name: Install Virtualbox
+  include: install_virtualbox.yml
+
+- name: Install Vagrant
+  include: install_vagrant.yml
+
+- name: Install Ansible
+  include: install_ansible.yml
