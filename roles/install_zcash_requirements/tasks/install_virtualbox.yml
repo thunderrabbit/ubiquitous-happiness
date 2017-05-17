@@ -1,0 +1,9 @@
+---
+# tasks file for install_virtualbox
+- name: Install virtualbox
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - linux-headers-amd64
+    - virtualbox
