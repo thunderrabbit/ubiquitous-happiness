@@ -1,0 +1,8 @@
+---
+# tasks file for install_vagrant
+- name: Install vagrant
+  apt:
+    name: "{{ item }}"
+    state: installed
+  with_items:
+    - vagrant
