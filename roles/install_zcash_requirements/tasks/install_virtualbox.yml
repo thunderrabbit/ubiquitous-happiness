@@ -5,5 +5,4 @@
     name: "{{ item }}"
     state: installed
   with_items:
-    - linux-headers-amd64
     - virtualbox
