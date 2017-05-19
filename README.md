@@ -37,6 +37,21 @@ Run the playbooks in order
     ansible_playbook playbook_020_install_zcash_requirements.yml
     ansible_playbook playbook_025_install_zcash_via_gitian.yml
 
+At this point, I used `ssh` to connect to the box and cloned this repo
+
+    git clone https://github.com/zcash/zcash-gitian.git
+
+Then I edited gitian.yml with my info and started vagrant
+
+    vagrant up --provision zcash-build
+
+Well crap. This machine does not support VT-x, some kind of nested virtualization.
+
+Tested according to https://askubuntu.com/a/779296/57009
+
+    sudo apt-get install cpu-checker
+    sudo kvm-ok
+
 Optionally, install the 800 pound gorilla who I love to have around
 
     ansible_playbook playbook_800_install_emacs.yml
