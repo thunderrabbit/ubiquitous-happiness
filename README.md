@@ -32,11 +32,11 @@ The `./setup.sh` script will ask you for your AWS credentials.  It will also cre
 
 Run the playbooks in order
 
-    ansible-playbook playbook-005-spin-up-vpc-and-server.yml
-    ansible-playbook playbook-010-update-server-and-reboot.yml
-    ansible-playbook playbook-015-install-zcash-requirements.yml
-    ansible-playbook playbook-020-install-zcash-via-gitian.yml
+    ansible_playbook playbook_005_spin_up_vpc_and_server.yml
+    ansible_playbook playbook_010_update_server_and_reboot.yml
+    ansible_playbook playbook_020_install_zcash_requirements.yml
+    ansible_playbook playbook_025_install_zcash_via_gitian.yml
 
 Optionally, install the 800 pound gorilla who I love to have around
 
-    ansible-playbook playbook-800-install-emacs.yml
+    ansible_playbook playbook_800_install_emacs.yml
