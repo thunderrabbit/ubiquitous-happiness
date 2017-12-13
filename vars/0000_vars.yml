@@ -5,7 +5,8 @@ server_name: "Zcash"
 region: ap-northeast-1
 
 # The image depends on the region
-image: ami-afb09dc8
+image: ami-dbc0bcbc  # Debian 8
+#image: ami-afb09dc8  # Ubuntu 16
 
-# Server will be Ubuntu 14, determined by ami above
-tag_os: "Ubuntu16"
+# Server is determined by ami above
+tag_os: "Debian 8"

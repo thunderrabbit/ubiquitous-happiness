@@ -4,7 +4,7 @@
       - vars/0000_vars.yml
       - vars/vars_for_base_provision.yml
     hosts: "tag_Name_{{ tag_name | regex_replace(' ','_') }}"
-    remote_user: ubuntu
+    remote_user: admin
     become: yes
     gather_facts: no
 

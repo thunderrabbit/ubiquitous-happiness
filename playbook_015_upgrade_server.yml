@@ -4,7 +4,7 @@
     - vars/0000_vars.yml
     - vars/vars_for_base_provision.yml
     - vars/vars_for_geerling.security.yml
-  remote_user: ubuntu
+  remote_user: admin
   tasks:
     - name: update the server
       become: yes
